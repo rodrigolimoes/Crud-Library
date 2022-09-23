@@ -1,5 +1,5 @@
 export const BookSchema = `
-    type Book {getBooks: [String]} 
+    type Book {getAll: [String]} 
     
     type Query {book: Book}
 `;

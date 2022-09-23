@@ -1,3 +1,3 @@
 export interface BookService {
-    getBooks: () => Array<string>;
+    getAll: () => Array<string>;
 }

@@ -3,17 +3,15 @@ import {graphqlHTTP} from "express-graphql";
 const router = Router();
 
 // resolvers
-import {Resolvers} from '../resolvers';
-import {Book} from '../service/Book';
+import resolvers from '../resolvers';
 
 // schema
 import schema from '../schema';
 
-const resolver = new Resolvers(new Book())
 
 router.use('/', graphqlHTTP({
     schema: schema,
-    rootValue: resolver.getResolvers(),
+    rootValue: resolvers,
     graphiql: true
 }));
 

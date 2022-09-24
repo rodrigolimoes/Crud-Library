@@ -1,16 +1,16 @@
 import {Book} from '../service/Book';
-import {BookService} from '../interfaces/BookService';
+import {BookService} from '../interfaces/Book/BookService';
 
 
-class BookResolver implements BookService{
-    private book: BookService
+class BookResolver {
+    private service: BookService
 
-    constructor(book: BookService) {
-        this.book = book;
+    constructor(service: BookService) {
+        this.service = service;
     }
 
     getAll(){
-        return this.book.getAll();
+        return this.service.getAll();
     }
 }
 

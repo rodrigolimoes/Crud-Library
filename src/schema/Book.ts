@@ -1,5 +1,12 @@
 export const BookSchema = `
-    type Book {getAll: [String]} 
+    type Book {
+        id: Int
+        name: String
+        description: String
+        author: String
+    }
+
+    type BookResolver {getAll: [Book]} 
     
-    type Query {book: Book}
+    type Query {book: BookResolver}
 `;

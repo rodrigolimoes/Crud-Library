@@ -1,17 +1,19 @@
-import {BookService} from '../interfaces/book/bookService';
+import { Book } from "../interfaces/book";
 
-
-class BookResolver {
-    private service: BookService
-
-    constructor(service: BookService) {
-        this.service = service;
-    }
-
-    getAll(){
-        return this.service.getAll();
-    }
+interface Service {
+  getAll(): Promise<Array<Book>>;
 }
 
+class BookResolver {
+  private service: Service;
+
+  constructor(service: Service) {
+    this.service = service;
+  }
+
+  getAll() {
+    return this.service.getAll();
+  }
+}
 
 export default BookResolver;

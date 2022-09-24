@@ -1,15 +1,23 @@
-import express from 'express';
-import {router} from './routes';
+import * as dotenv from "dotenv";
+dotenv.config();
 
-const PORT = 8000;
+import express from "express";
+import "reflect-metadata";
+import { router } from "./routes";
+import { appDataSource } from "./database/dataSource";
+
+const PORT = process.env["PORT"] || 4000;
 const app = express();
 
 app.use(router);
 
-export const connectServer = () => {
-    try{
-        app.listen(PORT, ()=> console.log(`Running server at http://localhost:${PORT}/`));
-    }catch (e) {
-        throw e;
-    }
-}
+export const connectServer = async () => {
+  try {
+    await appDataSource.initialize();
+    app.listen(PORT, () =>
+      console.log(`Running server at http://localhost:${PORT}/`)
+    );
+  } catch (e) {
+    throw e;
+  }
+};

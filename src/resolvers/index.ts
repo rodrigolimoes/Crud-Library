@@ -1,6 +1,7 @@
-import bookResolver from './Book';
+import bookResolver from './book';
+import {BookService} from '../service/bookService';
 
 
 export default {
-    ...bookResolver
+    book: new bookResolver(new BookService())
 };

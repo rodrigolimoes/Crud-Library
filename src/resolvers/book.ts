@@ -1,5 +1,4 @@
-import {Book} from '../service/Book';
-import {BookService} from '../interfaces/Book/BookService';
+import {BookService} from '../interfaces/book/bookService';
 
 
 class BookResolver {
@@ -15,4 +14,4 @@ class BookResolver {
 }
 
 
-export default new BookResolver(new Book());
+export default BookResolver;

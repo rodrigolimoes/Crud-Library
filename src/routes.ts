@@ -3,10 +3,10 @@ import {graphqlHTTP} from "express-graphql";
 const router = Router();
 
 // resolvers
-import resolvers from '../resolvers';
+import resolvers from './resolvers';
 
 // schema
-import schema from '../schema';
+import schema from './schema';
 
 
 router.use('/', graphqlHTTP({

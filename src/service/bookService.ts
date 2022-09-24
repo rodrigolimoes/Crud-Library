@@ -1,6 +1,4 @@
-import {BookService} from '../interfaces/Book/BookService';
-
-export class Book implements BookService{
+export class BookService{
     getAll(){
         return [{id: 1, name: "rodrigo", description: "sgdhs", author: "diego"}];
     }

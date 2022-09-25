@@ -3,6 +3,7 @@ import { Book } from "../interfaces/book";
 
 interface Repository {
   getAll(): Promise<Array<Book>>;
+  create(name: string, description: string, author: string): Promise<Book>;
 }
 
 export class BookService {
@@ -12,8 +13,16 @@ export class BookService {
     this.repository = repository;
   }
 
-  async getAll() {
-    return this.repository.getAll();
+  async getAll(): Promise<Array<Book>> {
+    return await this.repository.getAll();
+  }
+
+  async create(
+    name: string,
+    description: string,
+    author: string
+  ): Promise<Book> {
+    return this.repository.create(name, description, author);
   }
 }
 

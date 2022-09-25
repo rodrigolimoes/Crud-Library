@@ -5,8 +5,21 @@ export const BookSchema = `
         description: String
         author: String
     }
-
-    type BookResolver {getAll: [Book]} 
     
-    type Query {book: BookResolver}
+    type QueryBookResolver {
+        getAll: [Book]
+    }
+    
+    
+    type MutationBookResolver {
+        create(name: String!, description: String!, author: String!): Book 
+    } 
+    
+    type Query {
+        book: QueryBookResolver
+    }
+    
+    type Mutation {
+        book: MutationBookResolver
+    }
 `;

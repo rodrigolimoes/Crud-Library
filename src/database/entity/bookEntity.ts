@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryColumn, BaseEntity } from "typeorm";
 
-@Entity()
+@Entity("book")
 export class BookEntity extends BaseEntity {
   @PrimaryColumn({ unique: true, generated: true })
   id: number;

@@ -2,6 +2,7 @@ import { Book } from "../interfaces/book";
 
 interface Service {
   getAll(): Promise<Array<Book>>;
+  create(name: string, description: string, author: string): Promise<Book>;
 }
 
 class BookResolver {
@@ -11,8 +12,12 @@ class BookResolver {
     this.service = service;
   }
 
-  getAll() {
-    return this.service.getAll();
+  async getAll(): Promise<Array<Book>> {
+    return await this.service.getAll();
+  }
+
+  async create({ name, description, author }) {
+    return await this.service.create(name, description, author);
   }
 }
 

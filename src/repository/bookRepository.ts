@@ -6,8 +6,8 @@ type Entity = typeof BookEntity;
 class BookRepository {
   public entity: Entity;
 
-  constructor(repository: Entity) {
-    this.entity = repository;
+  constructor(entity: Entity) {
+    this.entity = entity;
   }
 
   async getById(id: number): Promise<Book> {
@@ -16,6 +16,10 @@ class BookRepository {
         id,
       },
     });
+  }
+
+  async getBook(name: string): Promise<Book> {
+    return await this.entity.findOne({ where: { name } });
   }
 
   async getAll(): Promise<Array<Book>> {

@@ -14,6 +14,9 @@ router.use(
     schema: schema,
     rootValue: resolvers,
     graphiql: true,
+    formatError: (error) => {
+      return { message: error.message };
+    },
   })
 );
 

@@ -8,6 +8,7 @@ export const BookSchema = `
     
     type QueryBookResolver {
         getAll: [Book]
+        getById(id: Int!): Book
     }
     
     

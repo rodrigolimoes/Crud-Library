@@ -10,6 +10,14 @@ class BookRepository {
     this.entity = repository;
   }
 
+  async getById(id: number): Promise<Book> {
+    return await this.entity.findOne({
+      where: {
+        id,
+      },
+    });
+  }
+
   async getAll(): Promise<Array<Book>> {
     return await this.entity.find();
   }
